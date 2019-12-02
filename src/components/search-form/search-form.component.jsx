@@ -1,7 +1,8 @@
 import React from 'react';
 import { SummonerQuery } from '../../lolApi.data';
 import MatchList from '../match-list/match-list.component';
-
+import { storage } from '../../firebase.utili';
+import { fromBase64 } from 'bytebuffer';
 class SearchForm extends React.Component{
 constructor() {
     super();
@@ -31,7 +32,20 @@ initMatchList = ()=> {
     return <MatchList nickName={summPref.name} accId={summPref.accountId} />
 }
 
+getUrl = () => {
+    let storageRef = storage.ref();
+let itemsRef = storageRef.child('items');
+let itemNumb = '1001.png';
+let itemRef = itemsRef.child(itemNumb);
 
+itemRef.getDownloadURL().then(function(url) {
+    console.log(url);
+  }).catch(function(error) {
+      console.log(error)  
+
+
+    });
+}
 
 
 render() {
@@ -46,6 +60,7 @@ render() {
                 <button type="submit"> Look </button>
             </form>
             <button onClick={()=> console.log(this.state)}>Check State</button>
+            <button onClick={()=> this.getUrl()}>Check Url</button>
             {
                 
                 (this.state.summonerData) ? this.initMatchList() : null

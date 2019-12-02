@@ -1,5 +1,7 @@
 import React from 'react';
+import './match-list.styles.scss';
 import { MatchListQuery, MatchDetailsQuery } from '../../lolApi.data';
+import Wrapper from '../wrapper/wrapper.component';
 class MatchList extends React.Component {
     constructor(props) {
         super(props);
@@ -9,14 +11,14 @@ class MatchList extends React.Component {
         }
     }
 
-    componentDidMount = async () => {
+    getData = async () => {
         let arr=[];
         //fetching list of matches based on accountId
         const matchListResponse = await fetch(MatchListQuery(this.props.accId));
         const matchListData = await matchListResponse.json();   
-        console.log(matchListData);     
+           
         const matchesIds =  matchListData.matches.map(el=>(el.gameId));
-        console.log(matchesIds);
+        
         //fetching match details 
         // how to save order?
         matchesIds.map(async el => {
@@ -30,7 +32,17 @@ class MatchList extends React.Component {
             /* this.setState({matchList: arr, loading:false}); */
             
             })
+    }
+
+    componentDidMount =  () => {
+        this.getData();
        
+    }
+
+    componentDidUpdate = (prevProps) => {
+        if ((this.props.nickName) && (this.props.nickName!==prevProps.nickName)) {
+            this.getData();
+        }
     }
     //get Data based on participandId
     getPlayerStats = () => {
@@ -59,33 +71,73 @@ class MatchList extends React.Component {
 
 
 
-
+/* 
     renderMatchList = matchList => {
+        
         return (
-            <ul>
+            <div className="matchList-container">
                 {    
                 this.state.playerStats.map( (el, i )=> (
-                    <li key={i}> <img src={`https://cdn.communitydragon.org/9.20.1/champion/${el.championId}/square`} alt={el.championId}/> 
 
-                    </li>)) 
-                } 
-             </ul>
+                    <div className="wrapper" key={i}> 
+                    
+                        <div> <img src={`https://cdn.communitydragon.org/9.20.1/champion/${el.championId}/square`} alt={el.championId} width='60' height='60'/> </div> 
+                        
+                        <div className="overview"> 
+                            <div className='endgame-result'> Victory </div>
+                            <div className="game-mode"> Ranked Flex </div>
+                            <div className= "summ-spells"> 
+                                <div>sp1 </div>
+                                <div>sp2</div>
+                            </div>                        
+                        </div>
+
+                        <div className="game-results"> 
+                            <div className="items-container"> </div>
+                            <div className="stats">
+                                <span>10/10/10</span>
+                                <span>200</span>
+                                <span>3,450</span>
+                            </div>
+                        </div>
+
+                        <div className="game-info"> 
+                            <div className="map"> {map.get(this.state.matchList[i].mapId)} </div>
+                            <div className="data">
+                                <span>32:07</span>
+                                <span>01/12/2019s</span>
+                             </div>
+                        </div>
+                    </div>
+
+                        )                     
+                    ) 
+                }
+                </div>
         )
-    }
+    } */
 
     render() {
 
-    
+        const ts= this.state;
 
         return(
 
             <div>
                 <h1>{this.props.nickName} Match history </h1>
                   {    
-                   (!this.state.loading) ? this.renderMatchList(this.state.matchList)  : "loading animation"                      
+
+                   (!this.state.loading) ? 
+
+                   <div className="matchList-container">
+                    <Wrapper playerStats={ts.playerStats} matchList={ts.matchList}/>
+                  </div>                    
+                   :              
+                                    
+                   "loading animation"                      
 
                  } 
-                <button onClick={()=>console.log(this.state) }>getMatchInfo</button>
+                <button onClick={()=>console.log(ts) }>getMatchInfo</button>
               
               
             </div> 

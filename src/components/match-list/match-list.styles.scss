@@ -1,0 +1,21 @@
+.matchList-container {
+    margin: auto;
+    width: 80%;
+
+    .wrapper {
+        background: grey;
+        display: flex;
+        justify-content: space-between;
+       
+        .overview, .game-results, .game-info {
+            flex-direction: column;
+            .summ-spells{
+                display: flex;
+            }
+            .items-container {
+                height:30%;
+                background: honeydew;
+            }
+        }
+    }
+}

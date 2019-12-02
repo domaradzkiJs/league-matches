@@ -12,29 +12,8 @@ class App extends React.Component {
     } ;
   }
 
-/*   componentDidMount = async () => {
+ 
    
-    const response = await fetch(MatchDetailsQuery(2322977330));
-    const data = await response.json();
-    console.log(data);
-  }  */
-
- 
-
-  // after Search
- /*  getMatchList = async () => {
-    if (this.state.summoner) {
-    const matchListResponse = await fetch(`${myProxy}https://eun1.api.riotgames.com/lol/match/v4/matchlists/by-account/${this.state.summoner.accountId}?endIndex=10&api_key=RGAPI-488cadb0-b959-44ff-91bb-b147ee494a12`);
-    const matchListData = await matchListResponse.json();
-    this.setState({matchList:matchListData})
-    }
-  } */
-
-  
-
- 
-
-  
 
   render() {
     return (
