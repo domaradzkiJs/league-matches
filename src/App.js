@@ -1,7 +1,8 @@
 import React from 'react';
-import { MatchDetailsQuery } from './lolApi.data';
+
 import SearchForm from './components/search-form/search-form.component';
 import './App.css';
+
 
 class App extends React.Component {
   constructor() {
@@ -18,6 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+          
           
           
           <SearchForm/>

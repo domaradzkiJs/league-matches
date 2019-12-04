@@ -1,21 +1,22 @@
 import React from 'react';
-import { SummonerQuery } from '../../lolApi.data';
+import { SummonerQuery, Region } from '../../lolApi.data';
 import MatchList from '../match-list/match-list.component';
-import { storage } from '../../firebase.utili';
-import { fromBase64 } from 'bytebuffer';
+import Form from '../form/form.component';
+
 class SearchForm extends React.Component{
 constructor() {
     super();
     
     this.state= {
         summonerNick:'',
-        summonerData: ''
+        summonerData: '',
+        region: ''
         
     }
 }
 
 getSummoner = async ()=> {
-    const response = await fetch(SummonerQuery(this.state.summonerNick));
+    const response = await fetch(SummonerQuery(this.state.summonerNick,this.state.region));
     const summonerData = await response.json();
     this.setState({summonerData: summonerData});
 }
@@ -23,29 +24,17 @@ getSummoner = async ()=> {
 
 handleSubmit = event => {
     event.preventDefault();
+    let server = document.querySelector('.drop-servers').value;
     let summonerNickname= document.getElementById('summonerNickname').value;
-    this.setState({summonerNick: summonerNickname},()=> this.getSummoner())
+    this.setState({summonerNick: summonerNickname, region: Region[server]},()=> this.getSummoner())
 }
 
 initMatchList = ()=> {
     const summPref = this.state.summonerData;
-    return <MatchList nickName={summPref.name} accId={summPref.accountId} />
+    return <MatchList nickName={summPref.name} accId={summPref.accountId} region={this.state.region}/>
 }
 
-getUrl = () => {
-    let storageRef = storage.ref();
-let itemsRef = storageRef.child('items');
-let itemNumb = '1001.png';
-let itemRef = itemsRef.child(itemNumb);
 
-itemRef.getDownloadURL().then(function(url) {
-    console.log(url);
-  }).catch(function(error) {
-      console.log(error)  
-
-
-    });
-}
 
 
 render() {
@@ -54,13 +43,10 @@ render() {
     
     return (
         <div className="search-form">
-            <form onSubmit={this.handleSubmit}>
-                <label> Browse my match history </label>
-                <input type="text" id="summonerNickname"/>
-                <button type="submit"> Look </button>
-            </form>
+        <Form  onSubmit={this.handleSubmit}/>
+
             <button onClick={()=> console.log(this.state)}>Check State</button>
-            <button onClick={()=> this.getUrl()}>Check Url</button>
+           
             {
                 
                 (this.state.summonerData) ? this.initMatchList() : null

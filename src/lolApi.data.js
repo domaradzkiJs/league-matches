@@ -1,10 +1,10 @@
 
 const myProxy = 'https://guarded-plateau-90176.herokuapp.com/';
-const API_KEY = "RGAPI-0cacc4ed-4411-40d9-b423-f213440cd6fc";
+const API_KEY = "RGAPI-675706e6-3e61-4c67-a2e6-5d11dfe0f778";
 
 
-
-const Region = {
+//server parser
+export const Region = {
 	'RU' : 'ru',
 	'KR' : 'kr',
 	'BR1' : 'br1',
@@ -21,16 +21,16 @@ const Region = {
 
 
 
-export const SummonerQuery = (nickName) => (
-	`${myProxy}https://eun1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${nickName}?api_key=${API_KEY}`
+export const SummonerQuery = (nickName,spec) => (
+	`${myProxy}https://${spec}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${nickName}?api_key=${API_KEY}`
 )
 
-export const MatchListQuery = (accountId) => (
-	`${myProxy}https://eun1.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?endIndex=10&api_key=${API_KEY}`
+export const MatchListQuery = (accountId,spec) => (
+	`${myProxy}https://${spec}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?endIndex=10&api_key=${API_KEY}`
 )
 
-export const MatchDetailsQuery = (matchId) => (
-	`${myProxy}https://eun1.api.riotgames.com/lol/match/v4/matches/${matchId}?api_key=${API_KEY}`
+export const MatchDetailsQuery = (matchId,spec) => (
+	`${myProxy}https://${spec}.api.riotgames.com/lol/match/v4/matches/${matchId}?api_key=${API_KEY}`
 )
 
 
@@ -86,3 +86,8 @@ export const getFormatedTime = (mili) => {
     
     return `${dd}/${mm}/${year}`
   }
+
+
+  // summoners rift http://raw.communitydragon.org/latest/plugins/rcp-fe-lol-item-sets/unknown/fa932ce425f07e9f.png
+  // other http://raw.communitydragon.org/latest/plugins/rcp-fe-lol-item-sets/unknown/
+  // profile icons http://raw.communitydragon.org/latest/game/assets/ux/summonericons/

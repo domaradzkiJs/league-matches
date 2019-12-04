@@ -1,8 +1,60 @@
 import React from 'react';
+ import { storage } from '../../firebase.utili'; 
+class Items extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={url:[]};
+    }
 
-const Items = () => (
-    <div class="item"> <img src="img/items/${pref.participants[i].stats.item0}.png" alt="" class="lol_img"/></div>
-    /* https://raw.communitydragon.org/latest/game/data/items/icons2d/033_buckler.png */
-)
+    componentDidMount() {
+       for (let i=0; i<this.props.items.length;i++){
+        this.getUrl(this.props.items[i]);
+       }
+    
+    }
+ 
+    getUrl = async (item) => {
+    let storageRef = storage.ref();
+    let itemsRef = storageRef.child('items');
+    let itemNumb = `${item}.png`;
+    let itemRef = itemsRef.child(itemNumb);
+     let downloadUrl = await itemRef.getDownloadURL();
+     //use concat array method
+     this.setState( state=> {
+        const url = state.url.concat(downloadUrl);
+       return {
+           url
+       };
+    
+    })
+    
+
+    }  
+
+
+
+
+    render() {
+
+      return  (
+          <div>
+               { (this.state.url.length===7) ?
+                  <div>{
+                     this.state.url.map((el,i)=>(
+                        <img key={i} src={ el } width="16" height="16" alt={ el[i] }/>
+                     ))
+                     }
+                 
+                  
+                  </div>
+                  : null
+              }
+             
+          </div>
+      )
+    }
+} 
+
+
 
 export default Items;

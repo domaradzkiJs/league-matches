@@ -2,6 +2,7 @@ import React from 'react';
 import './match-list.styles.scss';
 import { MatchListQuery, MatchDetailsQuery } from '../../lolApi.data';
 import Wrapper from '../wrapper/wrapper.component';
+import SpinnerLoader from '../spinner-loader/spinner-loader.component';
 class MatchList extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +15,7 @@ class MatchList extends React.Component {
     getData = async () => {
         let arr=[];
         //fetching list of matches based on accountId
-        const matchListResponse = await fetch(MatchListQuery(this.props.accId));
+        const matchListResponse = await fetch(MatchListQuery(this.props.accId,this.props.region));
         const matchListData = await matchListResponse.json();   
            
         const matchesIds =  matchListData.matches.map(el=>(el.gameId));
@@ -22,7 +23,7 @@ class MatchList extends React.Component {
         //fetching match details 
         // how to save order?
         matchesIds.map(async el => {
-            let resMatchDetails =  await fetch(MatchDetailsQuery(el));
+            let resMatchDetails =  await fetch(MatchDetailsQuery(el,this.props.region));
             let matchesDetails = await resMatchDetails.json();    
 
             arr.push(matchesDetails);     
@@ -71,51 +72,7 @@ class MatchList extends React.Component {
 
 
 
-/* 
-    renderMatchList = matchList => {
-        
-        return (
-            <div className="matchList-container">
-                {    
-                this.state.playerStats.map( (el, i )=> (
 
-                    <div className="wrapper" key={i}> 
-                    
-                        <div> <img src={`https://cdn.communitydragon.org/9.20.1/champion/${el.championId}/square`} alt={el.championId} width='60' height='60'/> </div> 
-                        
-                        <div className="overview"> 
-                            <div className='endgame-result'> Victory </div>
-                            <div className="game-mode"> Ranked Flex </div>
-                            <div className= "summ-spells"> 
-                                <div>sp1 </div>
-                                <div>sp2</div>
-                            </div>                        
-                        </div>
-
-                        <div className="game-results"> 
-                            <div className="items-container"> </div>
-                            <div className="stats">
-                                <span>10/10/10</span>
-                                <span>200</span>
-                                <span>3,450</span>
-                            </div>
-                        </div>
-
-                        <div className="game-info"> 
-                            <div className="map"> {map.get(this.state.matchList[i].mapId)} </div>
-                            <div className="data">
-                                <span>32:07</span>
-                                <span>01/12/2019s</span>
-                             </div>
-                        </div>
-                    </div>
-
-                        )                     
-                    ) 
-                }
-                </div>
-        )
-    } */
 
     render() {
 
@@ -134,7 +91,7 @@ class MatchList extends React.Component {
                   </div>                    
                    :              
                                     
-                   "loading animation"                      
+                   <SpinnerLoader/>                      
 
                  } 
                 <button onClick={()=>console.log(ts) }>getMatchInfo</button>

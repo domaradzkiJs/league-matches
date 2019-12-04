@@ -16,6 +16,22 @@ firebase.initializeApp(config);
 export let storage = firebase.storage();
 
 
+/* export let getUrl = (item) => {
+    let storageRef = storage.ref();
+let itemsRef = storageRef.child('items');
+let itemNumb = `${item}.png`;
+let itemRef = itemsRef.child(itemNumb);
+
+itemRef.getDownloadURL().then(function(url) {
+   return( 
+            url
+   )
+    
+  }).catch(function(error) {
+      console.log(error)      
+
+    });
+} */
 
 /* let gsRef =storage.refFromURL('gs://leagueapp-b2402.appspot.com/items/1001.png');
 var httpsReference = storage.refFromURL('https://firebasestorage.googleapis.com/b/bucket/o/images%20stars.jpg'); */
