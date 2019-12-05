@@ -1,6 +1,6 @@
 
 const myProxy = 'https://guarded-plateau-90176.herokuapp.com/';
-const API_KEY = "RGAPI-675706e6-3e61-4c67-a2e6-5d11dfe0f778";
+const API_KEY = "RGAPI-1f47be14-a535-46c2-bec9-ae4f7da27bf6";
 
 
 //server parser
@@ -25,8 +25,8 @@ export const SummonerQuery = (nickName,spec) => (
 	`${myProxy}https://${spec}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${nickName}?api_key=${API_KEY}`
 )
 
-export const MatchListQuery = (accountId,spec) => (
-	`${myProxy}https://${spec}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?endIndex=10&api_key=${API_KEY}`
+export const MatchListQuery = (accountId,spec,items) => (
+	`${myProxy}https://${spec}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?endIndex=${items}&api_key=${API_KEY}`
 )
 
 export const MatchDetailsQuery = (matchId,spec) => (

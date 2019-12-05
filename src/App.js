@@ -21,7 +21,10 @@ class App extends React.Component {
       <div className="App">
           
           
-          
+          <h2>Hello</h2>
+          <p> Browse League of Legends players match history,
+             For example, you can try these players: WilkFenris, MadTexas or your own.
+          </p>
           <SearchForm/>
       </div>
     );

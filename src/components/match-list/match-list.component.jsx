@@ -8,14 +8,15 @@ class MatchList extends React.Component {
         super(props);
         this.state={matchList:'',
                     loading: true,
-                    playerStats:[]
+                    playerStats:[],
+                    showItem: 10
         }
     }
 
     getData = async () => {
         let arr=[];
         //fetching list of matches based on accountId
-        const matchListResponse = await fetch(MatchListQuery(this.props.accId,this.props.region));
+        const matchListResponse = await fetch(MatchListQuery(this.props.accId,this.props.region,this.state.showItem));
         const matchListData = await matchListResponse.json();   
            
         const matchesIds =  matchListData.matches.map(el=>(el.gameId));
@@ -74,6 +75,7 @@ class MatchList extends React.Component {
 
 
 
+
     render() {
 
         const ts= this.state;
@@ -88,15 +90,16 @@ class MatchList extends React.Component {
 
                    <div className="matchList-container">
                     <Wrapper playerStats={ts.playerStats} matchList={ts.matchList}/>
+                    
                   </div>                    
                    :              
                                     
                    <SpinnerLoader/>                      
 
                  } 
-                <button onClick={()=>console.log(ts) }>getMatchInfo</button>
+         
               
-              
+             
             </div> 
         )
     }

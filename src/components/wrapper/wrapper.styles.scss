@@ -1,0 +1,30 @@
+.wrapper {
+        
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-around;
+   
+    .overview, .game-results, .game-info {
+        flex-direction: column;
+
+
+        .endgame-result {
+            text-align: left;
+            &.Victory {
+                color: blue;
+            }
+
+            &.Defeat {
+                color: red;
+            }
+        }
+
+        .summ-spells{
+            display: flex;
+        }
+        .items-container {
+            height:40%;
+            background: honeydew;
+        }
+    }
+}

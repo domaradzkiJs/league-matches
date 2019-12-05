@@ -4,6 +4,7 @@ import ChampIconAndLvl from '../champ-icon-and-lvl/champIconAndLvl.component';
 import Overview from '../overview/overview.component';
 import GameResults from '../game-results/game-results.component';
 import GameInfo from '../game-info/game-info.component';
+import './wrapper.styles.scss';
 
 const Wrapper = ({playerStats, matchList}) => (
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { SummonerQuery, Region } from '../../lolApi.data';
 import MatchList from '../match-list/match-list.component';
 import Form from '../form/form.component';
+import './search-form.styles.scss';
 
 class SearchForm extends React.Component{
 constructor() {
@@ -26,7 +27,10 @@ handleSubmit = event => {
     event.preventDefault();
     let server = document.querySelector('.drop-servers').value;
     let summonerNickname= document.getElementById('summonerNickname').value;
+    
+    if (summonerNickname.length > 0) {
     this.setState({summonerNick: summonerNickname, region: Region[server]},()=> this.getSummoner())
+    } else {console.log('summoner nickname must include atleast one letter')}
 }
 
 initMatchList = ()=> {
@@ -43,9 +47,10 @@ render() {
     
     return (
         <div className="search-form">
-        <Form  onSubmit={this.handleSubmit}/>
-
-            <button onClick={()=> console.log(this.state)}>Check State</button>
+            <div className="border-wrapper">
+             <Form  onSubmit={this.handleSubmit}/>
+            </div>
+          {/*   <button onClick={()=> console.log(this.state)}>Check State</button> */}
            
             {
                 

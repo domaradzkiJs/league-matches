@@ -1,21 +1,23 @@
 .matchList-container {
-    margin: auto;
-    width: 80%;
+    margin: 2rem auto;
+    width: 60%;
+    padding: 30px;
+    background: whitesmoke;
+    box-shadow: 0 15px 30px -10px transparentize(#000, 0.9);
+    
+    outline: none;
+    border-radius: 15px;
 
-    .wrapper {
-        background: grey;
-        display: flex;
-        justify-content: space-between;
-       
-        .overview, .game-results, .game-info {
-            flex-direction: column;
-            .summ-spells{
-                display: flex;
-            }
-            .items-container {
-                height:30%;
-                background: honeydew;
-            }
-        }
+    @media (max-width:1439px) {
+
+        width: 90%;
+    
+    }
+    @media (max-width:926px) {
+
+        width: 100%;
+    
     }
 }
+
+

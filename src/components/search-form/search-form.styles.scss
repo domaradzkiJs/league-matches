@@ -1,0 +1,19 @@
+.search-form {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    overflow: hidden;
+   
+
+    @media (max-width:926px) {
+
+        width: 92%;
+        font-size: 13px;
+    }
+
+    .border-wrapper {
+       width: 100%;
+       
+
+    } 
+}

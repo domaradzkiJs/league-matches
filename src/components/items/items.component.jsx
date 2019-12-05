@@ -41,7 +41,7 @@ class Items extends React.Component{
                { (this.state.url.length===7) ?
                   <div>{
                      this.state.url.map((el,i)=>(
-                        <img key={i} src={ el } width="16" height="16" alt={ el[i] }/>
+                        <img key={i} src={ el } width="20" height="20" alt={ el[i] }/>
                      ))
                      }
                  
