@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/league-matches/static/css/main.1df97a9f.chunk.css",
-    "main.js": "/league-matches/static/js/main.f859b034.chunk.js",
-    "main.js.map": "/league-matches/static/js/main.f859b034.chunk.js.map",
+    "main.css": "/league-matches/static/css/main.f1c31eac.chunk.css",
+    "main.js": "/league-matches/static/js/main.ae279f27.chunk.js",
+    "main.js.map": "/league-matches/static/js/main.ae279f27.chunk.js.map",
     "runtime-main.js": "/league-matches/static/js/runtime-main.005936ed.js",
     "runtime-main.js.map": "/league-matches/static/js/runtime-main.005936ed.js.map",
-    "static/js/2.33dbf8ca.chunk.js": "/league-matches/static/js/2.33dbf8ca.chunk.js",
-    "static/js/2.33dbf8ca.chunk.js.map": "/league-matches/static/js/2.33dbf8ca.chunk.js.map",
+    "static/js/2.faa41e8b.chunk.js": "/league-matches/static/js/2.faa41e8b.chunk.js",
+    "static/js/2.faa41e8b.chunk.js.map": "/league-matches/static/js/2.faa41e8b.chunk.js.map",
     "index.html": "/league-matches/index.html",
-    "precache-manifest.61d22fa8edaa160b244e22a2c34af7df.js": "/league-matches/precache-manifest.61d22fa8edaa160b244e22a2c34af7df.js",
+    "precache-manifest.ab15d2998786d4a83962cd670be04a8d.js": "/league-matches/precache-manifest.ab15d2998786d4a83962cd670be04a8d.js",
     "service-worker.js": "/league-matches/service-worker.js",
-    "static/css/main.1df97a9f.chunk.css.map": "/league-matches/static/css/main.1df97a9f.chunk.css.map"
+    "static/css/main.f1c31eac.chunk.css.map": "/league-matches/static/css/main.f1c31eac.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.005936ed.js",
-    "static/js/2.33dbf8ca.chunk.js",
-    "static/css/main.1df97a9f.chunk.css",
-    "static/js/main.f859b034.chunk.js"
+    "static/js/2.faa41e8b.chunk.js",
+    "static/css/main.f1c31eac.chunk.css",
+    "static/js/main.ae279f27.chunk.js"
   ]
 }
