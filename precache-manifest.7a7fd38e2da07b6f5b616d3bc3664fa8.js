@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "49db9a7be6f59761a1ffe533eb6e3b69",
+    "revision": "5f838425700bdbb30791be1dfb053806",
     "url": "/league-matches/index.html"
   },
   {
-    "revision": "188498f029f405baf463",
+    "revision": "2b005fc73724dde99b6a",
     "url": "/league-matches/static/css/main.f1c31eac.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/league-matches/static/js/2.faa41e8b.chunk.js"
   },
   {
-    "revision": "188498f029f405baf463",
-    "url": "/league-matches/static/js/main.ae279f27.chunk.js"
+    "revision": "2b005fc73724dde99b6a",
+    "url": "/league-matches/static/js/main.924350c6.chunk.js"
   },
   {
     "revision": "0f4f06163c9a1eae3962",
