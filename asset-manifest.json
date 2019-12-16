@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/league-matches/static/css/main.f1c31eac.chunk.css",
-    "main.js": "/league-matches/static/js/main.af1e725b.chunk.js",
-    "main.js.map": "/league-matches/static/js/main.af1e725b.chunk.js.map",
+    "main.js": "/league-matches/static/js/main.63623aa2.chunk.js",
+    "main.js.map": "/league-matches/static/js/main.63623aa2.chunk.js.map",
     "runtime-main.js": "/league-matches/static/js/runtime-main.005936ed.js",
     "runtime-main.js.map": "/league-matches/static/js/runtime-main.005936ed.js.map",
     "static/js/2.faa41e8b.chunk.js": "/league-matches/static/js/2.faa41e8b.chunk.js",
     "static/js/2.faa41e8b.chunk.js.map": "/league-matches/static/js/2.faa41e8b.chunk.js.map",
     "index.html": "/league-matches/index.html",
-    "precache-manifest.9ad60fa02698bde8ba44ce4b5404c74b.js": "/league-matches/precache-manifest.9ad60fa02698bde8ba44ce4b5404c74b.js",
+    "precache-manifest.21596414fa28f7ae44d079ec53a0c128.js": "/league-matches/precache-manifest.21596414fa28f7ae44d079ec53a0c128.js",
     "service-worker.js": "/league-matches/service-worker.js",
     "static/css/main.f1c31eac.chunk.css.map": "/league-matches/static/css/main.f1c31eac.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.005936ed.js",
     "static/js/2.faa41e8b.chunk.js",
     "static/css/main.f1c31eac.chunk.css",
-    "static/js/main.af1e725b.chunk.js"
+    "static/js/main.63623aa2.chunk.js"
   ]
 }
